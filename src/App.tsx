@@ -12,11 +12,11 @@ export default function App() {
     fetch("https://restcountries.com/v3.1/all")
       .then((e) => e.json())
       .then((res) => setCountries(res));
-  });
+  }, []);
 
   return (
-    <HeaderLayout>
-      <BrowserRouter>
+    <BrowserRouter>
+      <HeaderLayout>
         <Routes>
           <Route path="/" element={<Home countries={countries} />} />
           <Route
@@ -24,7 +24,7 @@ export default function App() {
             element={<Detail countries={countries} />}
           />
         </Routes>
-      </BrowserRouter>
-    </HeaderLayout>
+      </HeaderLayout>
+    </BrowserRouter>
   );
 }
