@@ -1,5 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { nameAsPath } from "../helpers/convertName";
 import { CountryType } from "../types";
+import DataColumn from "./DataColumn";
 
 export default function Country({ country }: { country: CountryType }) {
   const dataRows = [
@@ -8,8 +10,11 @@ export default function Country({ country }: { country: CountryType }) {
     { name: "Capital", value: country.capital },
   ];
 
+  const path = nameAsPath(country.name.common);
+  const location = useLocation();
+  
   return (
-    <Link to={`/${country.name.common.replaceAll(" ", "_").toLowerCase()}`}>
+    <Link to={path} state={location.pathname}>
       <div className="bg-white shadow rounded-b cursor-pointer text-dark">
         <img
           src={country.flags.png}
@@ -19,14 +24,7 @@ export default function Country({ country }: { country: CountryType }) {
         <div className="p-5 flex flex-col gap-4 h-48">
           <h2 className="text-lg font-bold leading-6">{country.name.common}</h2>
 
-          <div className="flex flex-col gap-1 text-sm">
-            {dataRows.map((row, index) => (
-              <div key={index} className="flex gap-1">
-                <p className="font-semibold">{row.name}:</p>
-                <span>{row.value ?? "-"}</span>
-              </div>
-            ))}
-          </div>
+          <DataColumn data={dataRows} />
         </div>
       </div>
     </Link>
