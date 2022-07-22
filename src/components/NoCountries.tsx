@@ -6,7 +6,7 @@ export default function NoCountries() {
         style={{ fontSize: "2.25rem" }}
       ></i>
 
-      <h1 className="text-2xl font-semibold">
+      <h1 className="text-2xl font-semibold dark:text-white">
         There are no countries to show!
       </h1>
     </div>

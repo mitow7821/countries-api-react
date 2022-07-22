@@ -15,7 +15,7 @@ export default function DetailBorders({
   return (
     <>
       {borders?.length && (
-        <div className="flex gap-3 mt-5">
+        <div className="flex gap-3 mt-5 flex-col md:flex-row">
           <p className="font-semibold py-1 text-sm border-transparent border">
             Border Countries:
           </p>
@@ -28,7 +28,7 @@ export default function DetailBorders({
               return (
                 <Link
                   key={cca3}
-                  className="bg-white shadow border border-light rounded-sm py-1 px-7"
+                  className="bg-white shadow border border-light rounded-sm py-1 px-7 dark:shadow-[#252525] dark:text-white dark:bg-primary dark:border-primary"
                   to={path}
                   state={location.pathname}
                 >

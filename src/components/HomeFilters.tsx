@@ -15,10 +15,10 @@ export default function HomeFilters(props: Props) {
   return (
     <div className="flex justify-between flex-wrap gap-2.5">
       <span className="p-input-icon-left ">
-        <i className="pi pi-search"></i>
+        <i className="pi pi-search dark:!text-light"></i>
 
         <InputText
-          className="w-[400px]"
+          className="w-[400px] dark:bg-primary dark:!border-primary dark:text-light"
           value={props.searchValue}
           onChange={(e) => props.setSearchValue(e.target.value)}
           placeholder="Search for a country..."
@@ -26,7 +26,7 @@ export default function HomeFilters(props: Props) {
       </span>
 
       <Dropdown
-        className="w-[220px]"
+        className="w-[220px] dark:bg-primary dark:!border-primary dark:!text-light"
         value={props.selectedRegion}
         options={regions}
         onChange={(e) => props.setSelectedRegion(e.value)}

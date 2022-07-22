@@ -16,7 +16,7 @@ export default function Home({ countries }: { countries: CountriesType }) {
   );
 
   return (
-    <div className="page-padding | py-8 min-h-full bg-light flex flex-col gap-6">
+    <div className="page-padding | py-8 min-h-full bg-light flex flex-col gap-6 dark:bg-dark">
       <HomeFilters
         searchValue={searchValue}
         setSearchValue={setSearchValue}

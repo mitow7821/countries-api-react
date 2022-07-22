@@ -1,21 +1,14 @@
-import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import useDarkMode from "../hooks/useDarkMode";
 
 export default function HeaderLayout({ children }: { children: JSX.Element }) {
-  const [darkMode, setDarkMode] = useState(false);
   const location = useLocation();
-
-  useDarkMode(darkMode);
+  const { darkMode, setDarkMode } = useDarkMode();
 
   return (
-    <div className="flex flex-col h-full overflow-hidden">
+    <div className="flex flex-col h-full overflow-hidden text-darker dark:bg-primary dark:text-white">
       <div className="page-padding | flex justify-between bg-gray-200 py-4 shadow-md z-10">
-        <Link
-          className="text-xl font-bold text-darker"
-          to="/"
-          state={location.pathname}
-        >
+        <Link className="text-xl font-bold" to="/" state={location.pathname}>
           Where in the world?
         </Link>
 

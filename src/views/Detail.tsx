@@ -19,20 +19,23 @@ export default function Detail({ countries }: { countries: CountriesType }) {
   const countryDetails = useCountryDetails(country);
 
   return (
-    <div className="page-padding | py-8 min-h-full bg-light flex flex-col gap-6">
+    <div className="page-padding | py-8 min-h-full bg-light flex flex-col gap-6 dark:bg-dark">
       {country ? (
         <>
           <BackButton />
 
-          <div className="grid grid-cols-2 gap-20 w-full pt-10">
-            <img src={country.flags.svg} className="w-4/5  shadow" />
+          <div className="grid grid-cols-1 gap-5  sm:gap-10 lg:gap-20 w-full pt-10 lg:grid-cols-2">
+            <img
+              src={country.flags.svg}
+              className="w-full shadow dark:shadow-[#252525] xl:w-4/5"
+            />
 
             <div className="self-center flex flex-col gap-9">
               <h2 className="text-3xl font-bold leading-6">
                 {country.name.common}
               </h2>
 
-              <div className="grid grid-cols-2">
+              <div className="grid grid-cols-1 gap-8 md:gap-3 md:grid-cols-2">
                 {countryDetails.map((columnData, index) => (
                   <DataColumn
                     data={columnData}
